@@ -108,7 +108,36 @@ namespace Yanacaq_Doldurma
                     Console.WriteLine("1-2 Seçenekleri Dışında Yanlış Seçim Yaptınız!");
                     goto ALTMENU;
                 }
+            }
+            else if (anamenusecim == '3')
+            {
+                Console.Clear();
+                Console.WriteLine("---AKaryakit Satış İşlemleri");
+            AKARYAKITSATIŞI:
+                Console.WriteLine("Akaryakıt Tipini Seçin[D,B,L]");
+                akaryakitsatistipi = Convert.ToChar(Console.ReadLine());
+                if (akaryakitsatistipi=='D'|| akaryakitsatistipi=='d')
+                {
+                    if (dizeltank==0)
+                    {
+                        Console.WriteLine("Yakıt tankında hiç dizel yakıt kalmamışdır");
+                        goto MENU;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ne kadarlık dizel yakıt alacaksınızI");
+                        satismiktari= Convert.ToDouble(Console.ReadLine());
+                        if (dizeltank<satismiktari)
+                        {
+                            Console.WriteLine("Yakıt tankında {0} litre dizel yakıt vardır! İşlem yapılmadı!",dizeltank);
+                            goto MENU;
+                        }
+                        else if (satismiktari<=dizeltank)
+                        {
 
+                        }
+                    }
+                }
             }
 
 
