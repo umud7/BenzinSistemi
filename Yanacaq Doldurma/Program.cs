@@ -134,10 +134,83 @@ namespace Yanacaq_Doldurma
                         }
                         else if (satismiktari<=dizeltank)
                         {
-
+                            dizeltank = dizeltank - satismiktari;
+                            Console.WriteLine("Yakıt dolumu tamamlanmıştır.");
+                            Console.WriteLine("Yakıt tankında {0} litre dizel yakıt kaldı.",dizeltank);
                         }
                     }
                 }
+               else if (akaryakitsatistipi == 'B' || akaryakitsatistipi == 'b')
+                {
+                    if (dizeltank == 0)
+                    {
+                        Console.WriteLine("Yakıt tankında hiç benzin yakıt kalmamışdır");
+                        goto MENU;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ne kadarlık benzin yakıt alacaksınızI");
+                        satismiktari = Convert.ToDouble(Console.ReadLine());
+                        if (benzintank < satismiktari)
+                        {
+                            Console.WriteLine("Yakıt tankında {0} litre benzin yakıt vardır! İşlem yapılmadı!", benzintank);
+                            goto MENU;
+                        }
+                        else if (satismiktari <= benzintank)
+                        {
+                            benzintank = benzintank - satismiktari;
+                            Console.WriteLine("Yakıt dolumu tamamlanmıştır.");
+                            Console.WriteLine("Yakıt tankında {0} litre benzin yakıt kaldı.", benzintank);
+                        }
+                    }
+                }
+               else if (akaryakitsatistipi == 'L' || akaryakitsatistipi == 'l')
+                {
+                    if (lpgtank == 0)
+                    {
+                        Console.WriteLine("Yakıt tankında hiç lpg yakıt kalmamışdır");
+                        goto MENU;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ne kadarlık lpg yakıt alacaksınızI");
+                        satismiktari = Convert.ToDouble(Console.ReadLine());
+                        if (lpgtank < satismiktari)
+                        {
+                            Console.WriteLine("Yakıt tankında {0} litre lpg yakıt vardır! İşlem yapılmadı!", lpgtank);
+                            goto MENU;
+                        }
+                        else if (satismiktari <= lpgtank)
+                        {
+                            lpgtank = lpgtank - satismiktari;
+                            Console.WriteLine("Yakıt dolumu tamamlanmıştır.");
+                            Console.WriteLine("Yakıt tankında {0} litre lpg yakıt kaldı.", lpgtank);
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("[D,B,L] dışında hatalı seçim yaptınız!");
+                    goto AKARYAKITSATIŞI;
+                }
+            ALTMENU:
+                Console.WriteLine("Sseçiminizi yapın[1: Ana Menuye Don 2:Programi Kapat]:");
+                altmenusecim = Convert.ToChar(Console.ReadLine());
+                if (altmenusecim == '1')
+                {
+                    Console.Clear();
+                    goto MENU;
+                }
+                else if (altmenusecim == '2')
+                {
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("1-2 Seçenekleri Dışında Yanlış Seçim Yaptınız!");
+                    goto ALTMENU;
+                }
+
             }
 
 
